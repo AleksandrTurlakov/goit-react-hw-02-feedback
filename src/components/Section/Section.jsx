@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { SectionApp, SectionTitle } from './Section.styled';
 
