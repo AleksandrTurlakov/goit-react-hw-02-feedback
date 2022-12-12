@@ -13,10 +13,9 @@ export class App extends Component {
     bad: 0,
   };
 
-  onClickBtn = e => {
-    const clickBtn = e.currentTarget.textContent;
+  onClickBtn = btn => {
     this.setState(prevState => ({
-      [clickBtn]: prevState[clickBtn] + 1,
+      [btn]: prevState[btn] + 1,
     }));
   };
 
@@ -36,14 +35,12 @@ export class App extends Component {
   render() {
     const listFeedback = Object.keys(this.state);
     const { good, neutral, bad } = this.state;
-    const { countTotalFeedback, countPositiveFeedbackPercentage } = this;
+    const { countTotalFeedback, countPositiveFeedbackPercentage, onClickBtn } =
+      this;
     return (
       <Section title="Please leave feedback">
         <GlobalStyle />
-        <FeedbackOptions
-          options={listFeedback}
-          onLeaveFeedback={this.onClickBtn}
-        />
+        <FeedbackOptions options={listFeedback} onLeaveFeedback={onClickBtn} />
         <StatTitle>Statistics</StatTitle>
         {countTotalFeedback() === 0 ? (
           <Notification message="There is no feedback" />

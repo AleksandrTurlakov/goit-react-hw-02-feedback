@@ -5,7 +5,7 @@ import { FeedbackGroup, FeedbackBtn } from './FeedbackOptions.styled';
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <FeedbackGroup>
     {options.map((btn, index) => (
-      <FeedbackBtn key={index} onClick={onLeaveFeedback}>
+      <FeedbackBtn key={index} onClick={() => onLeaveFeedback(btn)}>
         {btn}
       </FeedbackBtn>
     ))}
